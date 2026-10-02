@@ -2,7 +2,6 @@
 
 Minecraft Java 1.12.2 • Forge 14.23.5.2860 • Java 8 (64-bit)
 
-Osobny mod: modid `dobroszycecasino`. Może działać obok `kfcmod`.
 W paczce: gotowy JAR, projekt Gradle ze źródłami, instrukcja i opis testów.
 
 ## Instalacja
