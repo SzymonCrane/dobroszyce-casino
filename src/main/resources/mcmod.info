@@ -1,0 +1,13 @@
+[
+  {
+    "modid": "dobroszycecasino",
+    "name": "Dobroszyce Casino",
+    "description": "Four-seat multiplayer blackjack, physical casino chips and a villager dealer.",
+    "version": "1.0.0",
+    "mcversion": "1.12.2",
+    "authorList": [
+      "Szymon"
+    ],
+    "dependencies": []
+  }
+]

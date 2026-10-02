@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "dobroszycecasino:blackjack_table",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "dobroszycecasino:blackjack_table",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "dobroszycecasino:blackjack_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dobroszycecasino:blackjack_table",
+      "y": 270
+    }
+  }
+}

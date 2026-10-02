@@ -1,0 +1,20 @@
+{
+  "minecraft:recipes/misc/emerald": {
+    "criteria": {
+      "has_the_recipe": "2026-10-02 19:36:08 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/emerald_block": {
+    "criteria": {
+      "has_at_least_9_emerald": "2026-10-02 19:36:08 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "plains": "2026-10-02 19:02:14 +0200"
+    },
+    "done": false
+  }
+}
