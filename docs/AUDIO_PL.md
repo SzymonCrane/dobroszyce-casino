@@ -1,13 +1,13 @@
 # Audio ruletki i palenia
 
-- Ruletka: `no_more_bets` jest emitowany z serwera w `beginSpin`, po zmianie fazy BETTING → SPINNING. Nie jest odtwarzany co tick ani przy ponownym otwarciu GUI. Słychać go przestrzennie przy stole, kategoria Bloki.
+- Ruletka: `no_more_bets` jest emitowany z serwera w `beginSpin`, po zmianie fazy BETTING → SPINNING. Nie jest odtwarzany co tick ani przy ponownym otwarciu GUI. Słychać go przestrzennie przy stole, kategoria Główne (MASTER), głośność 2, zasięg około 32 bloków.
 - Blackjack: ten sam `no_more_bets` rozbrzmiewa raz z serwera przy rozpoczęciu rozdania — zarówno po gotowości wszystkich graczy, jak i po upływie odliczania. Brak zakładów, trwająca runda i strona klienta nie uruchamiają komunikatu.
 - Marlboro i Sister's device: przytrzymaj użycie przez 32 ticki (1,6 s). Animacja pierwszoosobowa płynnie unosi przedmiot do ust, bez kołysania jedzenia. Obsługuje obie ręce i leworęczną postać. W trzeciej osobie nie ma animacji jedzenia; widoczny jest wydech.
 - Po pełnym użyciu serwer odtwarza jeden wydech i wysyła cząstki dymu sprzed twarzy wszystkim pobliskim graczom, także używającemu. Zwolnienie przycisku wcześniej nie zużywa przedmiotu i nie odtwarza wydechu.
 - Marlboro zachowuje Szybkość I przez 30 s oraz zużycie jednej sztuki poza Creative.
 - Vape zachowuje chmurę pod graczem (promień 3, czas 6 s), 4 s cooldown i koszt jednej wytrzymałości poza Creative. Teraz powstaje ona po pełnym zaciągnięciu, zamiast natychmiast po kliknięciu.
 - `EnumAction.NONE` wyłącza vanilla dźwięki jedzenia/picia i okruchy. Inne jedzenie i napoje pozostają bez zmian.
-- Napisy PL/EN dostępne przez standardową opcję napisów Minecrafta. Głośność respektuje kategorie Bloki/Gracze.
+- Napisy PL/EN dostępne przez standardową opcję napisów Minecrafta. Głośność respektuje kategorie Główne/Gracze.
 
 ## Pliki i pochodzenie
 
@@ -23,3 +23,11 @@ Wszystkie pliki są dołączone do JAR-a w `assets/dobroszycecasino/sounds/`; ro
 Build i istniejące testy logiki przeszły. Sprawdzono format audio, rejestrację zasobów i pakowanie do JAR-a. Nie wykonano odsłuchu ani testu renderowania w uruchomionym kliencie Minecrafta.
 
 Do sprawdzenia w grze: jedna zapowiedź po odliczaniu ruletki; blackjack po gotowości wszystkich graczy i po odliczaniu; dwaj gracze przy stole; użycie/przerwanie obu przedmiotów; obie ręce i leworęczność; Creative i Survival; zachowanie cooldownu; brak chrupania i okruchów; zwykłe jedzenie nadal działa; napisy oraz suwaki głośności.
+
+## Poprawka słyszalności i barwy
+
+Oba stoły odtwarzają komunikat w MASTER, tak jak skuteczna komenda diagnostyczna użytkownika; wyciszenie Bloków już go nie tłumi. Nadal respektowana jest głośność główna. Głośność wywołania 2 zwiększa zasięg; Pomiar dekodowanego OGG wykazał rzeczywiste -60,18 LUFS w v1 (mimo wcześniejszego celu -18). Nowy plik osiąga -15,70 LUFS, true peak -1,20 dBFS. Poprzednia normalizacja bardzo krótkiego pliku nie zapewniła oczekiwanego poziomu. Nie potwierdzono, czy poprzedni brak komunikatu przy stole wynikał z suwaka Bloki.
+
+`tools/refine_villager_voice.py` używa zachowanego pliku v1, nadając głosowi harmoniczną, nosową barwę z intonacją hrrm przez wokoder pasmowy i domieszkę oryginalnych spółgłosek. Jest to stylizacja, nie oryginalny głos villagera. Ocena odsłuchowa użytkownika i próba w grze są nadal potrzebne.
+
+Walidacja poprawki: oba pliki zdekodowano i zmierzono FFmpeg; sprawdzono identyczne wywołanie MASTER/2.0 przy obu stołach oraz JSON. Pełnego builda nie powtórzono: tymczasowy JDK 8 i cache Forge/Gradle z poprzedniej sesji nie są już dostępne.
