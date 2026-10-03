@@ -8,6 +8,13 @@ import net.minecraft.world.WorldServer;
 
 public final class SmokingEffects {
     private SmokingEffects(){}
+    public static void inhaleTick(EntityLivingBase user,int remaining){
+        // Short bursts follow actual use ticks; releasing stops new sounds immediately.
+        if(!user.world.isRemote && remaining>8 && remaining%8==0){
+            user.world.playSound(null,user.posX,user.posY+user.getEyeHeight(),user.posZ,
+                CasinoSounds.SMOKE_INHALE,SoundCategory.PLAYERS,0.9F,1.0F);
+        }
+    }
     public static void exhale(EntityLivingBase user){
         if(!(user.world instanceof WorldServer))return;
         WorldServer world=(WorldServer)user.world;

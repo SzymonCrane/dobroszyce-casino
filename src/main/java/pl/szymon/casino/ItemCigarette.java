@@ -10,6 +10,9 @@ public class ItemCigarette extends ItemCasinoConsumable {
     public ItemCigarette(){super(MobEffects.SPEED,0,false);}
     // NONE suppresses vanilla chewing sounds and food fragments on both sides.
     @Override public EnumAction getItemUseAction(ItemStack stack){return EnumAction.NONE;}
+    @Override public void onUsingTick(ItemStack stack,EntityLivingBase user,int count){
+        SmokingEffects.inhaleTick(user,count);
+    }
     @Override public ItemStack onItemUseFinish(ItemStack stack,World world,EntityLivingBase user){
         SmokingEffects.exhale(user);
         return super.onItemUseFinish(stack,world,user);

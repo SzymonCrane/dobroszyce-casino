@@ -10,12 +10,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public final class CasinoSounds {
     public static final SoundEvent NO_MORE_BETS=sound("no_more_bets");
     public static final SoundEvent SMOKE_EXHALE=sound("smoke_exhale");
+    public static final SoundEvent SMOKE_INHALE=sound("smoke_inhale");
     private CasinoSounds(){}
     private static SoundEvent sound(String name){
         ResourceLocation id=new ResourceLocation(CasinoMod.ID,name);
         return new SoundEvent(id).setRegistryName(id);
     }
     @SubscribeEvent public static void register(RegistryEvent.Register<SoundEvent> event){
-        event.getRegistry().registerAll(NO_MORE_BETS,SMOKE_EXHALE);
+        event.getRegistry().registerAll(NO_MORE_BETS,SMOKE_EXHALE,SMOKE_INHALE);
     }
 }
