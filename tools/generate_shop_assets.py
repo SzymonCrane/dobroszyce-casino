@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[1] / 'src/main/resources/assets/dobroszycecasino'
 def sprite(name, draw):
     # These authored textures and custom transforms are maintained separately.
-    if name in {'fishs_feet','banana_special','daniels_4_hand_club','sisters_device'}: return
+    if name in {'fishs_feet','banana_special','daniels_4_hand_club','sisters_device','malboro_red'}: return
     image=Image.new('RGBA',(32,32)); draw(ImageDraw.Draw(image)); p=ROOT/'textures/items'/f'{name}.png';p.parent.mkdir(parents=True,exist_ok=True);image.save(p)
     model={'parent':'item/handheld' if name in ['daniels_4_hand_club','sisters_device'] else 'item/generated','textures':{'layer0':f'dobroszycecasino:items/{name}'}}
     (ROOT/'models/item'/f'{name}.json').write_text(json.dumps(model,indent=2)+'\n')
