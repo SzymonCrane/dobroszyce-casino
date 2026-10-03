@@ -35,3 +35,7 @@ Walidacja poprawki: oba pliki zdekodowano i zmierzono FFmpeg; sprawdzono identyc
 ## Dźwięk zaciągania
 
 Marlboro i Sister's device mają teraz osobny `smoke_inhale`: krótki wdech w tickach 32, 24 i 16 użycia, przed dotychczasowym wydechem po ukończeniu. Dźwięk emituje wyłącznie serwer, do używającego i pobliskich graczy, w kategorii Gracze. Przerwanie użycia zatrzymuje następne porcje; rozpoczęta próbka kończy się w maksymalnie 0,38 s. Cooldown vape nadal blokuje rozpoczęcie użycia. Generator: `tools/generate_inhale_audio.py`. Napisy PL/EN.
+
+## Czytelna mowa bez wokodera
+
+Po uwadze użytkownika o robotycznym brzmieniu generator zastąpiono wariantem bez syntetycznego nośnika i wokodera. Używa przedwokoderowego pliku v1, zachowuje artykulację i intonację, lekko przywraca wysokość przy zachowaniu niskich formantów i delikatnie podkreśla nosowe pasmo. Użytkownik wybrał czytelne słowa „No more bets” z podobieństwem do villagera, nie oryginalne pomruki bez słów. Ostateczne podobieństwo wymaga odsłuchowej oceny użytkownika; nie jest to oryginalna próbka villagera.
