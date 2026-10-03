@@ -54,3 +54,7 @@ Punkt issue #2 dotyczący seksualnego zachowania NPC nie został zaimplementowan
 ## Łańcuch KFC
 
 Przywrócono paper bowl, pieczenie kurczaka na skrzydełka, crafting kubełka oraz zwrot papierowego opakowania po zjedzeniu. Receptury i pochodzenie tekstur opisano w `KFC_PL.md`.
+
+## Akcesoria Baubles
+
+Ceasar's Brown Leggings działają w slocie BELT, Fish's Feet w CHARM, Watrouble w AMULET. Bez Baubles każdy ma fallback do drugiej ręki. Spodnie i stopy nie są już zbroją; istniejące przedmioty trzeba przenieść ze slotów zbroi do Baubles. Szczegóły: `BAUBLES_PL.md`.

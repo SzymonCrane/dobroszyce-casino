@@ -21,6 +21,7 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent public static void tooltip(net.minecraftforge.event.entity.player.ItemTooltipEvent e){
         net.minecraft.item.Item item=e.getItemStack().getItem();
         for(int i=0;i<SpecialItems.PRODUCTS.length;i++)if(item==SpecialItems.PRODUCTS[i])e.getToolTip().add(net.minecraft.util.text.TextFormatting.GRAY+ShopCatalog.HELP[i]);
+        if(item==SpecialItems.FISHS_FEET || item==SpecialItems.BROWN_LEGGINGS)e.getToolTip().add("Bez Baubles: trzymaj w drugiej rece");
         if(item==SpecialItems.KARP_GEORGE)e.getToolTip().add("Rzadka ryba (1% polowow ryb). Skladnik Fish's Feet.");
     }
     @Override public void preInit(){net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(TileRoulette.class,new RenderRoulette());RenderingRegistry.registerEntityRenderingHandler(EntityShopkeeper.class,manager->new ShopkeeperRenderer(manager));RenderingRegistry.registerEntityRenderingHandler(EntityDealer.class,manager->new DealerRenderer(manager));}
