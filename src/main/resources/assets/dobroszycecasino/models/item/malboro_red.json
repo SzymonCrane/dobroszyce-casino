@@ -3,7 +3,10 @@
   "ambientocclusion": false,
   "textures": {
     "pack": "dobroszycecasino:items/malboro_red_front",
-    "particle": "dobroszycecasino:items/malboro_red_front"
+    "particle": "dobroszycecasino:items/malboro_red_front",
+    "paper": "minecraft:blocks/quartz_block_side",
+    "filter": "minecraft:blocks/planks_birch",
+    "lining": "minecraft:blocks/iron_block"
   },
   "elements": [
     {
@@ -55,12 +58,12 @@
           ]
         },
         "up": {
-          "texture": "#pack",
+          "texture": "#lining",
           "uv": [
-            0.5,
-            0.3,
-            4,
-            0.8
+            0,
+            0,
+            16,
+            16
           ]
         },
         "down": {
@@ -132,12 +135,226 @@
           ]
         },
         "down": {
-          "texture": "#pack",
+          "texture": "#lining",
           "uv": [
-            1,
-            15.7,
-            15,
-            15.95
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          11,
+          6.2
+        ],
+        "axis": "x",
+        "angle": -45,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        3.8,
+        10.9,
+        6.5
+      ],
+      "to": [
+        12.2,
+        11.25,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#lining",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#lining",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#lining",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#lining",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#lining",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#lining",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        9.3,
+        10.8,
+        8.95
+      ],
+      "to": [
+        10.1,
+        16.4,
+        9.75
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paper",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#paper",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#paper",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#paper",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#paper",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#paper",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        9.3,
+        16.4,
+        8.95
+      ],
+      "to": [
+        10.1,
+        19.2,
+        9.75
+      ],
+      "faces": {
+        "north": {
+          "texture": "#filter",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#filter",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#filter",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#filter",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#filter",
+          "uv": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#filter",
+          "uv": [
+            2,
+            2,
+            6,
+            6
           ]
         }
       }
@@ -152,13 +369,13 @@
       ],
       "translation": [
         0,
-        0,
+        -1,
         0
       ],
       "scale": [
-        0.95,
-        0.95,
-        0.95
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "ground": {
@@ -232,8 +449,8 @@
     "firstperson_righthand": {
       "rotation": [
         0,
-        -25,
-        0
+        -30,
+        -8
       ],
       "translation": [
         1,
@@ -249,8 +466,8 @@
     "firstperson_lefthand": {
       "rotation": [
         0,
-        25,
-        0
+        30,
+        8
       ],
       "translation": [
         1,
