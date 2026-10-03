@@ -17,7 +17,7 @@ import net.minecraft.world.*;
 
 public class BlockRoulette extends Block implements ITileEntityProvider {
     private static final AxisAlignedBB BOX=new AxisAlignedBB(0,0,0,1,0.9,1);
-    public BlockRoulette(){super(Material.WOOD);setRegistryName(CasinoMod.ID,"roulette_table");setUnlocalizedName(CasinoMod.ID+".roulette_table");setCreativeTab(CreativeTabs.DECORATIONS);setHardness(3);setResistance(6000000F);setSoundType(SoundType.WOOD);}
+    public BlockRoulette(){super(Material.WOOD);setRegistryName(CasinoMod.ID,"roulette_table");setUnlocalizedName(CasinoMod.ID+".roulette_table");setCreativeTab(CasinoMod.TAB);setHardness(3);setResistance(6000000F);setSoundType(SoundType.WOOD);}
     @Override public TileEntity createNewTileEntity(World w,int meta){return new TileRoulette();}
     @Override public EnumBlockRenderType getRenderType(IBlockState state){return EnumBlockRenderType.INVISIBLE;}
     @Override public boolean isOpaqueCube(IBlockState state){return false;}

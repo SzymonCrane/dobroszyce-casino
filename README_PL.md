@@ -197,3 +197,7 @@ Przed użyciem na głównym świecie przetestuj na osobnym świecie z 2–4 klie
 3. Wyjście i ponowne wejście gracza w środku rundy.
 4. Zamknięcie okna w czasie obstawiania oraz przekroczenie czasu tury.
 5. Zapis i restart w środku rozdania, następnie odbiór wypłaty.
+
+## Aktualizacja 1.3.0
+
+Dodano zakładkę Creative **Dobroszyce Casino**, kolejne towary sklepu, rzadką rybę i crafting Fish's Feet oraz opcjonalny amulet Baubles. Sklep obsługuje wiele stron. Efekty, ceny, ograniczenia i instrukcja testów: [Przedmioty legendarne](docs/LEGENDARY_ITEMS_PL.md).

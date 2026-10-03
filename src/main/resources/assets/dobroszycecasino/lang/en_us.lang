@@ -16,3 +16,13 @@ item.dobroszycecasino.shopkeeper_placer.name=Casino Shopkeeper
 entity.dobroszycecasino.shopkeeper.name=Casino Shopkeeper
 tile.dobroszycecasino.roulette_table.name=Roulette Table (3x2)
 death.attack.casinoClubRecoil=%1$s overused Daniel's club
+
+itemGroup.dobroszycecasino=Dobroszyce Casino
+item.dobroszycecasino.legendary_kfc_bucket.name=Legendary KFC Bucket
+item.dobroszycecasino.white_monster.name=White Monster Energy
+item.dobroszycecasino.dzik_energy.name=Dzik Energy
+item.dobroszycecasino.ceasars_brown_leggings.name=Ceasar's Brown Leggings
+item.dobroszycecasino.amnesias_weed.name=Amnesia's Weed
+item.dobroszycecasino.red_bull_tabacco.name=Red Bull Tabacco
+item.dobroszycecasino.watrouble.name=Watrouble
+item.dobroszycecasino.karp_george.name=Karp George

@@ -8,3 +8,5 @@
 /run-server/
 /.idea/
 *.iml
+
+/run-legendary-qa/

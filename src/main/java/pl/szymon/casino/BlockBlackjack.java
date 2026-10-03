@@ -15,7 +15,7 @@ import net.minecraft.world.*;
 public class BlockBlackjack extends Block implements ITileEntityProvider {
     public static final PropertyDirection FACING=PropertyDirection.create("facing",EnumFacing.Plane.HORIZONTAL);
     private static final AxisAlignedBB BOX=new AxisAlignedBB(0,0,0,1,0.875,1);
-    public BlockBlackjack(){super(Material.WOOD);setRegistryName(CasinoMod.ID,"blackjack_table");setUnlocalizedName(CasinoMod.ID+".blackjack_table");setCreativeTab(CreativeTabs.DECORATIONS);setHardness(2.5F);setResistance(6000000F);setSoundType(SoundType.WOOD);setDefaultState(blockState.getBaseState().withProperty(FACING,EnumFacing.NORTH));}
+    public BlockBlackjack(){super(Material.WOOD);setRegistryName(CasinoMod.ID,"blackjack_table");setUnlocalizedName(CasinoMod.ID+".blackjack_table");setCreativeTab(CasinoMod.TAB);setHardness(2.5F);setResistance(6000000F);setSoundType(SoundType.WOOD);setDefaultState(blockState.getBaseState().withProperty(FACING,EnumFacing.NORTH));}
     @Override protected BlockStateContainer createBlockState(){return new BlockStateContainer(this,FACING);}
     @Override public IBlockState getStateFromMeta(int meta){return getDefaultState().withProperty(FACING,EnumFacing.getHorizontal(meta));}
     @Override public int getMetaFromState(IBlockState state){return state.getValue(FACING).getHorizontalIndex();}

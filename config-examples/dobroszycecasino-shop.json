@@ -20,6 +20,34 @@
     "malboro_red": {
       "enabled": false,
       "price": 0
+    },
+    "legendary_kfc_bucket": {
+      "enabled": false,
+      "price": 0
+    },
+    "white_monster": {
+      "enabled": false,
+      "price": 0
+    },
+    "dzik_energy": {
+      "enabled": false,
+      "price": 0
+    },
+    "ceasars_brown_leggings": {
+      "enabled": false,
+      "price": 0
+    },
+    "amnesias_weed": {
+      "enabled": false,
+      "price": 0
+    },
+    "red_bull_tabacco": {
+      "enabled": false,
+      "price": 0
+    },
+    "watrouble": {
+      "enabled": false,
+      "price": 0
     }
   }
 }
