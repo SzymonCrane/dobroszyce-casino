@@ -1,6 +1,284 @@
 {
-  "parent": "item/generated",
+  "parent": "block/block",
+  "ambientocclusion": false,
   "textures": {
-    "layer0": "dobroszycecasino:items/malboro_red"
+    "pack": "dobroszycecasino:items/malboro_red_front",
+    "particle": "dobroszycecasino:items/malboro_red_front"
+  },
+  "elements": [
+    {
+      "from": [
+        3.5,
+        1,
+        6.2
+      ],
+      "to": [
+        12.5,
+        11,
+        9.8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#pack",
+          "uv": [
+            0,
+            4.571428571428571,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#pack",
+          "uv": [
+            0,
+            4.571428571428571,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#pack",
+          "uv": [
+            0,
+            4.571428571428571,
+            0.35,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#pack",
+          "uv": [
+            15.65,
+            4.571428571428571,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#pack",
+          "uv": [
+            0.5,
+            0.3,
+            4,
+            0.8
+          ]
+        },
+        "down": {
+          "texture": "#pack",
+          "uv": [
+            1,
+            15.7,
+            15,
+            15.95
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        3.5,
+        11.025,
+        6.2
+      ],
+      "to": [
+        12.5,
+        15,
+        9.8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#pack",
+          "uv": [
+            0,
+            0,
+            16,
+            4.571428571428571
+          ]
+        },
+        "south": {
+          "texture": "#pack",
+          "uv": [
+            0,
+            0,
+            16,
+            4.571428571428571
+          ]
+        },
+        "east": {
+          "texture": "#pack",
+          "uv": [
+            0,
+            0,
+            0.35,
+            4.571428571428571
+          ]
+        },
+        "west": {
+          "texture": "#pack",
+          "uv": [
+            15.65,
+            0,
+            16,
+            4.571428571428571
+          ]
+        },
+        "up": {
+          "texture": "#pack",
+          "uv": [
+            0.5,
+            0.3,
+            4,
+            0.8
+          ]
+        },
+        "down": {
+          "texture": "#pack",
+          "uv": [
+            1,
+            15.7,
+            15,
+            15.95
+          ]
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        12,
+        -25,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        1
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        1
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -25,
+        0
+      ],
+      "translation": [
+        1,
+        1,
+        1
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        25,
+        0
+      ],
+      "translation": [
+        1,
+        1,
+        1
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        12,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
   }
 }
