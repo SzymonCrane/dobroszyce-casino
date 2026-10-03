@@ -39,3 +39,7 @@ Marlboro i Sister's device mają teraz osobny `smoke_inhale`: krótki wdech w ti
 ## Czytelna mowa bez wokodera
 
 Po uwadze użytkownika o robotycznym brzmieniu generator zastąpiono wariantem bez syntetycznego nośnika i wokodera. Używa przedwokoderowego pliku v1, zachowuje artykulację i intonację, lekko przywraca wysokość przy zachowaniu niskich formantów i delikatnie podkreśla nosowe pasmo. Użytkownik wybrał czytelne słowa „No more bets” z podobieństwem do villagera, nie oryginalne pomruki bez słów. Ostateczne podobieństwo wymaga odsłuchowej oceny użytkownika; nie jest to oryginalna próbka villagera.
+
+## Aktualny głos — zwykły kobiecy
+
+Na ostateczną prośbę użytkownika wszystkie efekty villagera wycofano z używanego nagrania. `no_more_bets.ogg` zawiera normalny syntetyczny kobiecy głos Piper `en_US-ljspeech-medium`, mówiący „No more bets.”, bez przesuwania tonu, formantów, vibrato i wokodera. Jedynie przycięto ciszę i wyrównano poziom. Źródło: `tools/audio/no_more_bets_female.wav`; aktualny generator: `tools/prepare_dealer_voice.py`. Wcześniejsze skrypty modulacji są historyczne i nie służą do generowania aktualnego dźwięku. Oba stoły korzystają z tego samego podmienionego OGG.
