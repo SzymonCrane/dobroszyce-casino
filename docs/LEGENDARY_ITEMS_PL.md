@@ -43,7 +43,7 @@ Przykład:
 
 ## Grafiki i zakres
 
-Nowe przedmioty korzystają na razie z istniejących ikon Minecrafta (jedzenie, napoje, ryba, skórzane spodnie, roślina, cukier i złoty samorodek). Własne tekstury z poprzedniego PR-a są zachowane. Ten PR wdraża mechaniki i organizację Creative, nie finalne grafiki nowych towarów.
+Wszystkie osiem nowych przedmiotów ma własne ikony. KFC używa dokładnie oryginalnej tekstury z kfc-mod, bez zależności od tamtego moda. Dzik odwzorowuje puszkę WK Dzik Sour Apple, White Monster — Monster Energy Ultra. Karp George nosi ciemne okulary aviator także w ręce; model ma osobne ustawienia dla obu rąk w pierwszej i trzeciej osobie. Spodnie mają brązowy, luźny krój, Amnesia przedstawia marihuanę, Red Bull pudełko tabaki ze zdjęcia, a Watrouble wątrobę. Szczegóły źródeł grafik: `ITEM_ART.md`.
 
 Punkt issue #2 dotyczący seksualnego zachowania NPC nie został zaimplementowany; issue pozostaje otwarte.
 
