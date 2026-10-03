@@ -68,7 +68,7 @@ public class TileRoulette extends TileEntity implements ITickable {
     private void beginSpin(){
         if(phase!=BETTING||bettors.isEmpty())return;
         phase=SPINNING;elapsed=0;timer=0;pocket=world.rand.nextInt(37);startAngle=world.rand.nextDouble()*RouletteRules.TAU;sync();
-        world.playSound(null,pos,SoundEvents.BLOCK_WOOD_BUTTON_CLICK_ON,SoundCategory.BLOCKS,0.5F,0.8F);
+        world.playSound(null,pos,CasinoSounds.NO_MORE_BETS,SoundCategory.BLOCKS,1.0F,1.0F);
     }
     private void settle(){
         if(phase!=SPINNING)return;

@@ -10,7 +10,7 @@ public final class SpecialItems {
     public static final Item BANANA=named(new ItemCasinoConsumable(MobEffects.STRENGTH,1,true),"banana_special");
     public static final Item CLUB=named(new ItemFourHandClub(),"daniels_4_hand_club");
     public static final Item SMOKE=named(new ItemSmokeGun(),"sisters_device");
-    public static final Item MALBORO=named(new ItemCasinoConsumable(MobEffects.SPEED,0,false),"malboro_red");
+    public static final Item MALBORO=named(new ItemCigarette(),"malboro_red");
     public static final Item SHOPKEEPER=named(new ItemShopkeeper(),"shopkeeper_placer");
     public static final Item KFC=named(new ItemLegendaryFood(false,true,new PotionEffect(MobEffects.ABSORPTION,1200,0),new PotionEffect(MobEffects.REGENERATION,200,0)),"legendary_kfc_bucket");
     private static Item energy(String id){return named(new ItemLegendaryFood(true,false,new PotionEffect(MobEffects.HASTE,1200,0),new PotionEffect(MobEffects.SPEED,1200,0),new PotionEffect(MobEffects.NIGHT_VISION,1200,0)),id);}
