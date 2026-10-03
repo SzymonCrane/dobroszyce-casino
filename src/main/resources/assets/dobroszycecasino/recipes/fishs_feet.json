@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F F",
+    "L L"
+  ],
+  "key": {
+    "F": {
+      "item": "dobroszycecasino:karp_george"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "dobroszycecasino:fishs_feet"
+  }
+}

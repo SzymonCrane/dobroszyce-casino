@@ -11,7 +11,11 @@ public class ShopRulesTest {
         for(int amount:new int[]{-1,-5,1,24,26,201}){try{ChipMath.change(amount);throw new AssertionError("Invalid change accepted");}catch(IllegalArgumentException expected){checks++;}}
         // Every denomination can pay all smaller prices without losing change.
         for(int coin:ChipMath.VALUES)for(int cost=5;cost<=coin;cost+=5){int sum=0;int[] change=ChipMath.change(coin-cost);for(int i=0;i<change.length;i++)sum+=change[i]*ChipMath.VALUES[i];ok(sum+cost==coin);}
-        JsonObject root=catalog();ok(ShopConfig.parse(root).size()==5);ok(ShopConfig.parse(root).get("fishs_feet")==205);
+        ok(ShopCatalog.IDS.length==ShopCatalog.NAMES.length&&ShopCatalog.IDS.length==ShopCatalog.HELP.length);
+        ok(new HashSet<>(Arrays.asList(ShopCatalog.IDS)).size()==ShopCatalog.IDS.length);
+        JsonObject legacy=new JsonObject(),legacyOffers=new JsonObject(),legacyOffer=new JsonObject();legacy.addProperty("schemaVersion",1);legacyOffer.addProperty("enabled",true);legacyOffer.addProperty("price",25);legacyOffers.add("fishs_feet",legacyOffer);legacy.add("offers",legacyOffers);
+        ok(ShopConfig.parse(legacy).size()==1); // Upgrading does not require resetting old prices.
+        JsonObject root=catalog();ok(ShopConfig.parse(root).size()==ShopCatalog.IDS.length);ok(ShopConfig.parse(root).get("fishs_feet")==205);
         JsonObject offer=root.getAsJsonObject("offers").getAsJsonObject("fishs_feet");
         for(int bad:new int[]{-5,0,1,24,1000005}){offer.addProperty("price",bad);rejects(root);}
         offer.addProperty("price",5.5);rejects(root);offer.addProperty("price",5000000000L);rejects(root);offer.addProperty("price","25");rejects(root);

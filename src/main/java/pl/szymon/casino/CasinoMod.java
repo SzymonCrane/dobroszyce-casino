@@ -13,10 +13,13 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.*;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid=CasinoMod.ID, name="Dobroszyce Casino", version="1.2.0", acceptedMinecraftVersions="[1.12.2]", dependencies="required-after:forge@[14.23.5.2860,)")
+@Mod(modid=CasinoMod.ID, name="Dobroszyce Casino", version="1.3.0", acceptedMinecraftVersions="[1.12.2]", dependencies="required-after:forge@[14.23.5.2860,);after:baubles")
 @Mod.EventBusSubscriber(modid=CasinoMod.ID)
 public class CasinoMod {
     public static final String ID="dobroszycecasino";
+    public static final CreativeTabs TAB=new CreativeTabs(ID) {
+        @Override public ItemStack getTabIconItem(){return new ItemStack(TABLE_ITEM);}
+    };
     @Mod.Instance(ID) public static CasinoMod instance;
     @SidedProxy(clientSide="pl.szymon.casino.ClientProxy",serverSide="pl.szymon.casino.CommonProxy")
     public static CommonProxy proxy;
@@ -27,7 +30,7 @@ public class CasinoMod {
     public static final ItemRoulette ROULETTE_ITEM=new ItemRoulette(ROULETTE);
     public static final Item[] CHIPS=new Item[ChipMath.VALUES.length];
     public static final int[] VALUES=ChipMath.VALUES;
-    static { for(int i=0;i<CHIPS.length;i++) CHIPS[i]=new Item().setRegistryName(ID,"chip_"+VALUES[i]).setUnlocalizedName(ID+".chip_"+VALUES[i]).setCreativeTab(CreativeTabs.MISC); }
+    static { for(int i=0;i<CHIPS.length;i++) CHIPS[i]=new Item().setRegistryName(ID,"chip_"+VALUES[i]).setUnlocalizedName(ID+".chip_"+VALUES[i]).setCreativeTab(TAB); }
     @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> e) { e.getRegistry().registerAll(TABLE,ROULETTE); }
     @SubscribeEvent public static void items(RegistryEvent.Register<Item> e) { e.getRegistry().registerAll(TABLE_ITEM,ROULETTE_ITEM);e.getRegistry().registerAll(CHIPS);e.getRegistry().registerAll(SpecialItems.ALL); }
     @Mod.EventHandler public void preInit(FMLPreInitializationEvent e) {
