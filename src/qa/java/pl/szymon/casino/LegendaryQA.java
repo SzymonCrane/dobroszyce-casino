@@ -34,7 +34,20 @@ public class LegendaryQA {
                 p.clearActivePotions();SpecialItems.AMNESIA.onItemUseFinish(new ItemStack(SpecialItems.AMNESIA),w,p);ok(p.isPotionActive(MobEffects.LEVITATION)&&p.isPotionActive(MobEffects.SLOWNESS)&&p.isPotionActive(MobEffects.BLINDNESS),"Amnesia effects");
                 p.clearActivePotions();SpecialItems.RED_BULL.onItemUseFinish(new ItemStack(SpecialItems.RED_BULL),w,p);ok(p.isPotionActive(MobEffects.HASTE)&&p.isPotionActive(MobEffects.RESISTANCE),"tobacco effects");
                 p.clearActivePotions();ItemWatrouble.worn(p);ok(p.getAbsorptionAmount()==4F,"amulet absorption");p.setAbsorptionAmount(0);ItemWatrouble.worn(p);ok(p.getAbsorptionAmount()==0,"amulet cannot refill every tick");
-                p.setItemStackToSlot(EntityEquipmentSlot.LEGS,new ItemStack(SpecialItems.BROWN_LEGGINGS));p.ticksExisted=200;LegendaryEvents.tick(new TickEvent.PlayerTickEvent(TickEvent.Phase.END,p));ok(p.isPotionActive(MobEffects.INVISIBILITY),"leggings invisibility");
+                p.clearActivePotions();
+                ok(!(SpecialItems.BROWN_LEGGINGS instanceof net.minecraft.item.ItemArmor)&&!(SpecialItems.FISHS_FEET instanceof net.minecraft.item.ItemArmor),"accessories are not armor");
+                p.setItemStackToSlot(EntityEquipmentSlot.LEGS,new ItemStack(SpecialItems.BROWN_LEGGINGS));
+                ok(!CasinoBaubles.isWorn(p,SpecialItems.BROWN_LEGGINGS),"old armor slot does not activate bauble");
+                p.setItemStackToSlot(EntityEquipmentSlot.LEGS,ItemStack.EMPTY);
+                if(net.minecraftforge.fml.common.Loader.isModLoaded("baubles")){
+                    Object handler=Class.forName("baubles.api.BaublesApi").getMethod("getBaublesHandler",net.minecraft.entity.player.EntityPlayer.class).invoke(null,p);
+                    net.minecraftforge.items.IItemHandlerModifiable inventory=(net.minecraftforge.items.IItemHandlerModifiable)handler;
+                    inventory.setStackInSlot(3,new ItemStack(SpecialItems.BROWN_LEGGINGS));
+                    inventory.setStackInSlot(6,new ItemStack(SpecialItems.FISHS_FEET));
+                    inventory.setStackInSlot(0,new ItemStack(SpecialItems.WATROUBLE));
+                    ok(CasinoBaubles.isWorn(p,SpecialItems.FISHS_FEET)&&CasinoBaubles.isWorn(p,SpecialItems.WATROUBLE),"three accessories equip together");
+                }else p.setHeldItem(net.minecraft.util.EnumHand.OFF_HAND,new ItemStack(SpecialItems.BROWN_LEGGINGS));
+                p.ticksExisted=200;LegendaryEvents.tick(new TickEvent.PlayerTickEvent(TickEvent.Phase.END,p));ok(p.isPotionActive(MobEffects.INVISIBILITY),"bauble leggings invisibility");
                 System.out.println("LEGENDARY_QA_COMPLETE");
             }catch(Throwable ex){failed=true;ex.printStackTrace();}finally{done=true;}
         });}

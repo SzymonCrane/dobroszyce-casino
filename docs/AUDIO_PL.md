@@ -43,3 +43,7 @@ Po uwadze użytkownika o robotycznym brzmieniu generator zastąpiono wariantem b
 ## Aktualny głos — zwykły kobiecy
 
 Na ostateczną prośbę użytkownika wszystkie efekty villagera wycofano z używanego nagrania. `no_more_bets.ogg` zawiera normalny syntetyczny kobiecy głos Piper `en_US-ljspeech-medium`, mówiący „No more bets.”, bez przesuwania tonu, formantów, vibrato i wokodera. Jedynie przycięto ciszę i wyrównano poziom. Źródło: `tools/audio/no_more_bets_female.wav`; aktualny generator: `tools/prepare_dealer_voice.py`. Wcześniejsze skrypty modulacji są historyczne i nie służą do generowania aktualnego dźwięku. Oba stoły korzystają z tego samego podmienionego OGG.
+
+## Biała para Sister's Device
+
+Vape używa jasnych cząstek CLOUD (biała para z cieniowaniem Minecrafta) zarówno w chmurze pod graczem, jak i przy wydechu sprzed twarzy. Marlboro zachowuje dotychczasowy dym SMOKE_NORMAL. Promień, czas trwania, cooldown i dźwięki vape pozostają bez zmian.

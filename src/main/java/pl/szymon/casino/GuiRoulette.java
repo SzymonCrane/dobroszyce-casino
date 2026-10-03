@@ -18,14 +18,15 @@ public class GuiRoulette extends GuiContainer {
         }
         for(int i=0;i<6;i++)buttonList.add(new BetButton(37+i,guiLeft+8+i*50,guiTop+111,49,18,RouletteRules.label(37+i),i==0?0xFF9F3341:i==1?0xFF252832:0xFF235446));
         for(int i=0;i<6;i++)buttonList.add(new BetButton(43+i,guiLeft+8+i*50,guiTop+131,49,18,RouletteRules.label(43+i),0xFF235446));
-        for(int i=0;i<CasinoMod.VALUES.length;i++)buttonList.add(new GuiButton(60+i,guiLeft+8+i*31,guiTop+154,30,18,Integer.toString(CasinoMod.VALUES[i])));
+        for(int i=0;i<CasinoMod.VALUES.length;i++)buttonList.add(new StakeButton(60+i,guiLeft+8+i*31,guiTop+154,CasinoMod.VALUES[i]));
         buttonList.add(new GuiButton(70,guiLeft+200,guiTop+154,49,18,"Cofnij"));buttonList.add(new GuiButton(71,guiLeft+251,guiTop+154,53,18,"Anuluj"));
         buttonList.add(new GuiButton(72,guiLeft+8,guiTop+176,145,18,"Kup 100 / 1 emerald"));buttonList.add(new GuiButton(73,guiLeft+157,guiTop+176,147,18,"Sprzedaj 100 / 1 emerald"));
     }
     @Override protected void actionPerformed(GuiButton button)throws IOException{if(button.enabled)mc.playerController.sendEnchantPacket(roulette.windowId,button.id);}
     @Override public void updateScreen(){
         super.updateScreen();NBTTagCompound v=roulette.view;boolean open=v.hasKey("phase") && v.getInteger("phase")==TileRoulette.BETTING;
-        int selected=v.getInteger("selected");for(GuiButton b:buttonList){b.enabled=open;if(b.id>=60&&b.id<=65)b.displayString=(CasinoMod.VALUES[b.id-60]==selected?">":"")+CasinoMod.VALUES[b.id-60];}
+        int selected=v.hasKey("selected")?v.getInteger("selected"):5;
+        for(GuiButton b:buttonList){b.enabled=open;if(b instanceof StakeButton)((StakeButton)b).selected=CasinoMod.VALUES[b.id-60]==selected;}
     }
     @Override public void drawScreen(int x,int y,float pt){
         drawDefaultBackground();super.drawScreen(x,y,pt);
@@ -45,6 +46,19 @@ public class GuiRoulette extends GuiContainer {
         if(phase==TileRoulette.RESULT)fontRenderer.drawString("Twoj zwrot: "+v.getInteger("paid")+"  Netto: "+(v.getInteger("paid")-v.getInteger("mine")),9,200,0xFFE29B);
         else fontRenderer.drawString("Zamknij ESC, aby ogladac kolo w swiecie.",9,200,0xFFFFFF);
         fontRenderer.drawString("Zaklady zostaja po zamknieciu. Limit: 5000/os.",9,213,0xBBCFC1);
+    }
+    private static class StakeButton extends GuiButton {
+        private boolean selected;
+        StakeButton(int id,int x,int y,int value){super(id,x,y,30,18,Integer.toString(value));selected=value==5;}
+        @Override public void drawButton(Minecraft mc,int mx,int my,float pt){
+            if(!visible)return;
+            hovered=mx>=x&&my>=y&&mx<x+width&&my<y+height;
+            drawRect(x,y,x+width,y+height,selected?0xFF55FF55:0xFF9F956F);
+            drawRect(x+1,y+1,x+width-1,y+height-1,hovered&&enabled?0xFF475447:0xFF252832);
+            int color=selected?0xFF55FF55:enabled?0xFFFFFFFF:0xFF9FABA2;
+            drawCenteredString(mc.fontRenderer,displayString,x+width/2,y+5,color);
+            if(selected)drawRect(x+5,y+height-3,x+width-5,y+height-2,0xFF55FF55);
+        }
     }
     private static class BetButton extends GuiButton {
         private final int color;

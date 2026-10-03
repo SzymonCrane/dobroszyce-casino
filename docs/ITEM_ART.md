@@ -18,7 +18,7 @@ Siedem nowych grafik przygotowano wbudowanym imagegen, następnie przeskalowano 
 
 Karp używa tej samej tekstury z okularami w ekwipunku i w obu rękach. Ustawienia `display` powiększają i pochylają przedmiot w pierwszej i trzeciej osobie. Jest to model `item/generated` (sprite z grubością), nie pełny przestrzenny model ryby. Pozostałe ikony także używają standardowego modelu generowanego.
 
-Zmiana spodni dotyczy ikony przedmiotu. Wygląd założonej zbroi nadal korzysta z brązowo barwionej skórzanej zbroi Minecrafta.
+Spodnie i Fish's Feet są teraz akcesoriami Baubles, bez modelu założonej zbroi. Ikony pozostają bez zmian. Sloty i efekty: `BAUBLES_PL.md`.
 
 ## Prompty (imagegen)
 

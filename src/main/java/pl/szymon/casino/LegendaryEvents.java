@@ -1,8 +1,6 @@
 package pl.szymon.casino;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.*;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,7 +20,7 @@ public class LegendaryEvents {
         if(event.phase!=TickEvent.Phase.END||p.world.isRemote||p.isDead||p.isSpectator())return;
         // Without Baubles the offhand is the explicitly supported fallback slot.
         if(!net.minecraftforge.fml.common.Loader.isModLoaded("baubles")&&p.getHeldItemOffhand().getItem()==SpecialItems.WATROUBLE)ItemWatrouble.worn(p);
-        if(p.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem()!=SpecialItems.BROWN_LEGGINGS)return;
+        if(!CasinoBaubles.isWorn(p,SpecialItems.BROWN_LEGGINGS))return;
         if(p.ticksExisted%20==0)p.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,40,0,false,false));
         long now=p.getServer().getWorld(0).getTotalWorldTime();
         String key="casinoLeggingsNext";

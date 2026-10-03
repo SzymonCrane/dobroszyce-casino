@@ -1,8 +1,6 @@
 package pl.szymon.casino;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.*;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.world.GetCollisionBoxesEvent;
@@ -13,8 +11,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class SpecialItemEvents {
     @SubscribeEvent public static void water(GetCollisionBoxesEvent e){
         if(!(e.getEntity() instanceof EntityPlayer))return;
-        EntityPlayer p=(EntityPlayer)e.getEntity();ItemStack boots=p.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-        if(boots.isEmpty()||boots.getItem()!=SpecialItems.FISHS_FEET||p.isSneaking()||p.isSpectator()||p.capabilities.isFlying)return;
+        EntityPlayer p=(EntityPlayer)e.getEntity();
+        if(!CasinoBaubles.isWorn(p,SpecialItems.FISHS_FEET)||p.isSneaking()||p.isSpectator()||p.capabilities.isFlying)return;
         // Add collisions only at the surface below the feet, never trapping a submerged player.
         int feet=MathHelper.floor(p.getEntityBoundingBox().minY);
         AxisAlignedBB query=e.getAabb();
