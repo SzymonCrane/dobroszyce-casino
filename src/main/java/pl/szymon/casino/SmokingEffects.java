@@ -16,6 +16,9 @@ public final class SmokingEffects {
         }
     }
     public static void exhale(EntityLivingBase user){
+        exhale(user,EnumParticleTypes.SMOKE_NORMAL);
+    }
+    public static void exhale(EntityLivingBase user,EnumParticleTypes particle){
         if(!(user.world instanceof WorldServer))return;
         WorldServer world=(WorldServer)user.world;
         Vec3d look=user.getLookVec();
@@ -24,7 +27,7 @@ public final class SmokingEffects {
         world.playSound(null,x,y,z,CasinoSounds.SMOKE_EXHALE,SoundCategory.PLAYERS,0.65F,1.0F);
         for(int i=0;i<12;i++){
             double spread=0.04;
-            world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL,x+world.rand.nextGaussian()*spread,y+world.rand.nextGaussian()*spread,z+world.rand.nextGaussian()*spread,
+            world.spawnParticle(particle,x+world.rand.nextGaussian()*spread,y+world.rand.nextGaussian()*spread,z+world.rand.nextGaussian()*spread,
                 0,look.x*0.09,look.y*0.09+0.02,look.z*0.09,1.0);
         }
     }

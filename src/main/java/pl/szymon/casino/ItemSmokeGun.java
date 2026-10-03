@@ -22,12 +22,12 @@ public class ItemSmokeGun extends Item {
             EntityPlayer p=(EntityPlayer)user;
             if(p.getCooldownTracker().hasCooldown(this))return s;
             EntityAreaEffectCloud cloud=new EntityAreaEffectCloud(w,p.posX,p.posY+0.05,p.posZ);
-            cloud.setOwner(p);cloud.setRadius(3);cloud.setRadiusPerTick(0);cloud.setWaitTime(0);cloud.setDuration(120);cloud.setParticle(EnumParticleTypes.SMOKE_LARGE);
+            cloud.setOwner(p);cloud.setRadius(3);cloud.setRadiusPerTick(0);cloud.setWaitTime(0);cloud.setDuration(120);cloud.setParticle(EnumParticleTypes.CLOUD);
             // Visual cloud only; costs and cooldown apply only after a completed puff.
             if(w.spawnEntity(cloud)){
                 p.getCooldownTracker().setCooldown(this,80);
                 if(!p.capabilities.isCreativeMode)s.damageItem(1,p);
-                SmokingEffects.exhale(p);
+                SmokingEffects.exhale(p,EnumParticleTypes.CLOUD);
             }
         }
         return s;
