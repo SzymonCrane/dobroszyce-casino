@@ -12,6 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 public class TileRoulette extends TileEntity implements ITickable {
     public static final int BETTING=0,SPINNING=1,RESULT=2;
@@ -78,7 +79,17 @@ public class TileRoulette extends TileEntity implements ITickable {
         for(Map.Entry<UUID,Bettor> e:bettors.entrySet()){
             Bettor b=e.getValue();refund(e.getKey(),b.paid);
             EntityPlayerMP player=world.getMinecraftServer().getPlayerList().getPlayerByUUID(e.getKey());
-            if(player!=null)message(player,"Ruletka: "+lastNumber+". Zwrot: "+b.paid+", wynik netto: "+(b.paid-b.total())+" zetonow.");
+            if(player!=null){
+                String colorName=lastNumber==0?"zielone":RouletteRules.red(lastNumber)?"czerwone":"czarne";
+                // Dark gray represents black pockets while remaining visible in chat.
+                TextFormatting color=lastNumber==0?TextFormatting.GREEN:RouletteRules.red(lastNumber)?TextFormatting.RED:TextFormatting.DARK_GRAY;
+                TextComponentString result=new TextComponentString("Ruletka: ");
+                TextComponentString number=new TextComponentString(lastNumber+" ("+colorName+")");
+                number.getStyle().setColor(color).setBold(true);
+                result.appendSibling(number);
+                result.appendSibling(new TextComponentString(". Zwrot: "+b.paid+", wynik netto: "+(b.paid-b.total())+" zetonow."));
+                player.sendMessage(result);
+            }
         }
         world.playSound(null,pos,SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP,SoundCategory.BLOCKS,0.8F,0.8F);sync();
     }
