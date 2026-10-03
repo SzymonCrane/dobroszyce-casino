@@ -4,6 +4,8 @@ import json
 from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[1] / 'src/main/resources/assets/dobroszycecasino'
 def sprite(name, draw):
+    # These authored textures and custom transforms are maintained separately.
+    if name in {'fishs_feet','banana_special','daniels_4_hand_club','sisters_device'}: return
     image=Image.new('RGBA',(32,32)); draw(ImageDraw.Draw(image)); p=ROOT/'textures/items'/f'{name}.png';p.parent.mkdir(parents=True,exist_ok=True);image.save(p)
     model={'parent':'item/handheld' if name in ['daniels_4_hand_club','sisters_device'] else 'item/generated','textures':{'layer0':f'dobroszycecasino:items/{name}'}}
     (ROOT/'models/item'/f'{name}.json').write_text(json.dumps(model,indent=2)+'\n')
@@ -42,4 +44,4 @@ sprite('shopkeeper_placer',placer)
 # Villager UV: original geometry with a green shop apron and gold trim.
 im=Image.new('RGBA',(64,64),(36,84,69,255));d=ImageDraw.Draw(im)
 d.rectangle((0,0,31,19),fill='#bb916e');d.rectangle((8,4,19,7),fill='#514035');d.rectangle((8,10,15,11),fill='#513d2e');d.rectangle((9,12,10,13),fill='#eff2d7');d.rectangle((13,12,14,13),fill='#eff2d7');d.point((10,13),fill='#24392f');d.point((13,13),fill='#24392f');d.rectangle((10,16,13,16),fill='#765b43');d.rectangle((0,20,31,47),fill='#e5d7b6');d.rectangle((16,24,27,43),fill='#377964');d.rectangle((16,33,27,35),fill='#c5a35f');d.rectangle((18,36,25,40),fill='#204d42');d.rectangle((0,48,63,63),fill='#214d40');d.rectangle((40,20,63,35),fill='#b18a67');(ROOT/'textures/entity').mkdir(exist_ok=True);im.save(ROOT/'textures/entity/shopkeeper.png')
-im=Image.new('RGBA',(64,32));d=ImageDraw.Draw(im);d.rectangle((0,16,31,31),fill='#227c83');d.rectangle((0,26,31,31),fill='#3cd9b9');d.rectangle((0,30,31,31),fill='#f3d681');p=ROOT/'textures/models/armor';p.mkdir(parents=True,exist_ok=True);im.save(p/'fish_layer_1.png')
+im=Image.new('RGBA',(64,32));d=ImageDraw.Draw(im);d.rectangle((0,16,31,31),fill='#d79c78');d.rectangle((0,26,31,31),fill='#efb48d');d.rectangle((0,30,31,31),fill='#bd7c59');p=ROOT/'textures/models/armor';p.mkdir(parents=True,exist_ok=True);im.save(p/'fish_layer_1.png')
