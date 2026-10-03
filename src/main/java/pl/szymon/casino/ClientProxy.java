@@ -18,15 +18,24 @@ import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(modid=CasinoMod.ID,value=Side.CLIENT)
 public class ClientProxy extends CommonProxy {
-    @Override public void preInit(){RenderingRegistry.registerEntityRenderingHandler(EntityDealer.class,manager->new DealerRenderer(manager));}
+    @Override public void preInit(){net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(TileRoulette.class,new RenderRoulette());RenderingRegistry.registerEntityRenderingHandler(EntityShopkeeper.class,manager->new ShopkeeperRenderer(manager));RenderingRegistry.registerEntityRenderingHandler(EntityDealer.class,manager->new DealerRenderer(manager));}
     @SubscribeEvent public static void models(ModelRegistryEvent e){
         ModelLoader.setCustomModelResourceLocation(CasinoMod.TABLE_ITEM,0,new ModelResourceLocation(CasinoMod.TABLE.getRegistryName(),"inventory"));
+        ModelLoader.setCustomModelResourceLocation(CasinoMod.ROULETTE_ITEM,0,new ModelResourceLocation(CasinoMod.ROULETTE.getRegistryName(),"inventory"));
+        for(net.minecraft.item.Item item:SpecialItems.ALL)ModelLoader.setCustomModelResourceLocation(item,0,new ModelResourceLocation(item.getRegistryName(),"inventory"));
         for(net.minecraft.item.Item item:CasinoMod.CHIPS)ModelLoader.setCustomModelResourceLocation(item,0,new ModelResourceLocation(item.getRegistryName(),"inventory"));
     }
-    @Override public Object getClientGuiElement(int id,EntityPlayer p,World w,int x,int y,int z){TileEntity t=w.getTileEntity(new BlockPos(x,y,z));return t instanceof TileBlackjack?new GuiCasino(new CasinoContainer(p,(TileBlackjack)t)):null;}
+    @Override public Object getClientGuiElement(int id,EntityPlayer p,World w,int x,int y,int z){if(id==2){net.minecraft.entity.Entity entity=w.getEntityByID(x);return entity instanceof EntityShopkeeper?new GuiShop(new ShopContainer(p,(EntityShopkeeper)entity)):null;}TileEntity t=w.getTileEntity(new BlockPos(x,y,z));if(id==1 && t instanceof TileRoulette)return new GuiRoulette(new RouletteContainer(p,(TileRoulette)t));return id==0 && t instanceof TileBlackjack?new GuiCasino(new CasinoContainer(p,(TileBlackjack)t)):null;}
     @Override public void receive(Snapshot message){Minecraft.getMinecraft().addScheduledTask(()->{
+        if(Minecraft.getMinecraft().player!=null && Minecraft.getMinecraft().player.openContainer instanceof ShopContainer){ShopContainer c=(ShopContainer)Minecraft.getMinecraft().player.openContainer;if(c.windowId==message.window && message.data!=null)c.view=message.data;}
+        if(Minecraft.getMinecraft().player!=null && Minecraft.getMinecraft().player.openContainer instanceof RouletteContainer){RouletteContainer c=(RouletteContainer)Minecraft.getMinecraft().player.openContainer;if(c.windowId==message.window && message.data!=null)c.view=message.data;}
         if(Minecraft.getMinecraft().player!=null && Minecraft.getMinecraft().player.openContainer instanceof CasinoContainer){CasinoContainer c=(CasinoContainer)Minecraft.getMinecraft().player.openContainer;if(c.windowId==message.window && message.data!=null)c.view=message.data;}
     });}
+    private static class ShopkeeperRenderer extends RenderLiving<EntityShopkeeper> {
+        private final ResourceLocation skin=new ResourceLocation(CasinoMod.ID,"textures/entity/shopkeeper.png");
+        ShopkeeperRenderer(RenderManager manager){super(manager,new ModelVillager(0.0F),0.5F);}
+        @Override protected ResourceLocation getEntityTexture(EntityShopkeeper entity){return skin;}
+    }
     private static class DealerRenderer extends RenderLiving<EntityDealer> {
         private final ResourceLocation skin=new ResourceLocation(CasinoMod.ID,"textures/entity/dealer.png");
         DealerRenderer(RenderManager manager){super(manager,new ModelVillager(0.0F),0.5F);}

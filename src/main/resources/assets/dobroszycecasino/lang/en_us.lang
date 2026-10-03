@@ -4,3 +4,15 @@ item.dobroszycecasino.chip_50.name=Casino Chip 50
 item.dobroszycecasino.chip_100.name=Casino Chip 100
 item.dobroszycecasino.chip_500.name=Casino Chip 500
 entity.dobroszycecasino.dealer.name=Krupier
+
+item.dobroszycecasino.chip_5.name=Casino Chip 5
+item.dobroszycecasino.chip_200.name=Casino Chip 200
+item.dobroszycecasino.fishs_feet.name=Fish's Feet
+item.dobroszycecasino.banana_special.name=Banana Special
+item.dobroszycecasino.daniels_4_hand_club.name=Daniel's 4-hand Club
+item.dobroszycecasino.sisters_device.name=Sister's device
+item.dobroszycecasino.malboro_red.name=Malboro Red
+item.dobroszycecasino.shopkeeper_placer.name=Casino Shopkeeper
+entity.dobroszycecasino.shopkeeper.name=Casino Shopkeeper
+tile.dobroszycecasino.roulette_table.name=Roulette Table (3x2)
+death.attack.casinoClubRecoil=%1$s overused Daniel's club
