@@ -50,3 +50,7 @@ Punkt issue #2 dotyczący seksualnego zachowania NPC nie został zaimplementowan
 ## Testy
 
 `gradlew build` uruchamia istniejące testy logiki i rozszerzony test katalogu oraz zgodności starego pliku cen. Scenariusz testowy klienta: `gradlew -I tools/legendary-qa.gradle runClient` — tworzy oddzielny świat i sprawdza zakładkę, powiązania ofert, zużywanie oraz efekty. Kod QA jest poza domyślnym source set i nie trafia do wydania. Po QA wykonaj `gradlew clean build` przed dystrybucją.
+
+## Łańcuch KFC
+
+Przywrócono paper bowl, pieczenie kurczaka na skrzydełka, crafting kubełka oraz zwrot papierowego opakowania po zjedzeniu. Receptury i pochodzenie tekstur opisano w `KFC_PL.md`.
