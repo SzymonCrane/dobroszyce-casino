@@ -1,4 +1,4 @@
-# Dobroszyce Casino 1.0.0
+# Dobroszyce Casino 1.2.0
 
 Minecraft Java 1.12.2 • Forge 14.23.5.2860 • Java 8 (64-bit)
 
@@ -7,7 +7,7 @@ W paczce: gotowy JAR, projekt Gradle ze źródłami, instrukcja i opis testów.
 ## Instalacja
 1. Zamknij Minecrafta.
 2. CurseForge > profil RLCraft > trzy kropki > Open Folder > mods.
-3. Skopiuj dobroszyce-casino-1.12.2-1.0.0.jar do mods.
+3. Skopiuj dobroszyce-casino-1.12.2-1.2.0.jar do mods.
 4. Na serwerze umieść TEN SAM plik w mods serwera i u każdego gracza.
 5. Uruchom profil Minecraft 1.12.2 / Forge 14.23.5.2860.
 
@@ -30,20 +30,22 @@ powinien otworzyć TEN SAM stół. Każdy zajmuje osobne miejsce w interfejsie.
 Nie ma animacji siadania na krześle; gracz stoi obok bloku i korzysta z GUI.
 
 ## Żetony i wymiana
-Nominały: 25 (zielony), 50 (czerwony), 100 (ciemny), 500 (fioletowy).
+Nominały: 5 (niebieski), 25 (zielony), 50 (czerwony), 100 (ciemny), 200 (pomarańczowy), 500 (fioletowy).
 Przy stole: Kup 100 pobiera 1 emerald; Sprzedaj 100 oddaje 1 emerald.
 Przyciski wymiany działają podczas obstawiania.
 Żetony są przedmiotami w głównym ekwipunku gracza; przedmioty w drugiej ręce
 nie są liczone do salda. Przenieś je do zwykłego ekwipunku.
 
 Receptury bezkształtne:
+5 × 5 <-> 1 × 25 (łączenie wymaga crafting table)
 2 × 25 <-> 1 × 50
 2 × 50 <-> 1 × 100
+2 × 100 <-> 1 × 200
 5 × 100 <-> 1 × 500 (połączenie wymaga większej siatki craftingu)
 
 Wszystkie receptury rozmieniania zachowują sumę wartości.
 Komenda operatora /casinochips <gracz> <wartosc> przyznaje wartość, a nie liczbę
-sztuk konkretnego żetonu. Wartość musi być wielokrotnością 25, od 25 do 1000000.
+sztuk konkretnego żetonu. Wartość musi być wielokrotnością 5, od 5 do 1000000.
 Stół obsługuje bank o nieograniczonych rezerwach żetonów, bez zewnętrznego moda ekonomii.
 
 ## Receptura stołu
@@ -73,7 +75,7 @@ Dolny: dębowy płotek, puste, dębowy płotek.
 - Oznaczenia kolorów kart: C = trefl, D = karo, H = kier, S = pik.
 - Ta wersja nie zawiera splitu, ubezpieczenia ani surrender.
 
-## Multiplayer, zamknięcie okna i zapis
+## Blackjack: multiplayer, zamknięcie okna i zapis
 Obsługa kart, losowanie, weryfikacja tur, pobieranie stawek i wypłaty odbywają się
 na głównym wątku serwera. Klient wysyła tylko identyfikator wybranej czynności.
 Zakryta karta krupiera i pozostała talia nie są wysyłane w podglądzie GUI ani NBT chunka.
@@ -94,6 +96,56 @@ cofnąć ostatnie zmiany ekwipunku lub świata — nie jest to transakcyjny syst
 W survivalu stół jest zablokowany przed wykopaniem, dopóki są na nim stawki lub
 trwa runda. Usunięcie przez administratora zwraca nierozliczone stawki.
 
+## Sklepikarz i przedmioty specjalne (1.2.0)
+
+Szczegółowa konfiguracja: [docs/SHOP_PL.md](docs/SHOP_PL.md).
+Przykładowy plik: [config-examples/dobroszycecasino-shop.json](config-examples/dobroszycecasino-shop.json).
+
+Operator w trybie Creative otrzymuje przedmiot do ustawiania NPC:
+```mcfunction
+/give @p dobroszycecasino:shopkeeper_placer 1
+```
+Kliknij podłoże prawym przyciskiem. Sklepikarz nie chodzi, nie znika i nie przyjmuje
+obrażeń. PPM otwiera sklep. Shift+PPM przez operatora w Creative usuwa NPC.
+Sklep używa zwykłych żetonów w ekwipunku; wydaje resztę, także w nominale 5.
+
+| Przedmiot | Działanie |
+| --- | --- |
+| Fish's Feet | Buty o parametrach diamentowych; chodzenie po wodzie. Shift umożliwia zanurzenie. |
+| Banana Special | Mikstura Siły II na 30 sekund; po wypiciu oddaje pustą butelkę. |
+| Daniel's 4-hand Club | PPM lub trafienie LPM: pełne obrażenia wszystkim widocznym celom w promieniu 3 bloków. Koszt 0,5 HP użytkownika, odstęp 1 s. |
+| Sister's device | PPM: chmura dymu do 6 bloków przed graczem, promień 3 bloki, czas 6 s. Bez obrażeń i oślepienia; odstęp 4 s. |
+| Malboro Red | Przytrzymanie PPM zużywa jedną sztukę; Szybkość I przez 30 sekund. |
+
+Maczuga ma bazowe obrażenia diamentowego miecza (7); każdy cel otrzymuje pełny
+atak z uwzględnieniem jego pancerza i odporności. Uwzględnia ustawienia PvP i drużyn.
+Koszt własny 0,5 HP to ćwierć serduszka i omija pancerz; Creative jest zwolniony.
+Maczuga ma 500 użyć, urządzenie dymne 128. Specjalne przedmioty nie mają receptur:
+pochodzą ze sklepu lub komend/Creative. NPC stawia wyłącznie operator w Creative.
+
+Oferty są domyślnie wyłączone do czasu ustawienia cen przez administratora.
+Na serwerze edytuj `config/dobroszycecasino-shop.json`, następnie `/casinoshop reload`.
+Restart nie jest potrzebny. Przeładowanie zamyka otwarte sklepy, aby gracz nie kupił
+produktu po cenie innej niż ta, którą widział przed zmianą.
+
+## Ruletka 3 × 2 bloki
+
+```mcfunction
+/give @p dobroszycecasino:roulette_table 1
+```
+Stół zajmuje od klikniętego pola 3 bloki na wschód (+X) i 2 na południe (+Z).
+Koło i kulka są widoczne w świecie. PPM otwiera zakłady; Esc zamyka ekran,
+**zachowując zakłady**, dzięki czemu można oglądać losowanie obok stołu.
+
+- Koło europejskie 0–36; do 4 obstawiających, pozostali mogą oglądać.
+- Wszystkie nominały: 5, 25, 50, 100, 200, 500; limit 5000 na osobę/rundę.
+- 20 s na zakłady od pierwszej stawki, 12 s obrotu, 8 s prezentacji wyniku.
+- Numer: zwrot 36× stawka; kolor/parzystość/połowa: 2×; tuzin/kolumna: 3×.
+- Zero przegrywa zakłady grupowe. Zwroty zawierają pierwotną stawkę.
+- Cofnij i Anuluj zwracają zakłady tylko przed rozpoczęciem obrotu.
+- Stan rundy zapisuje się ze światem; oczekujące wypłaty wracają po zalogowaniu.
+- Receptura: złoto/redstone/złoto; papier/papier/papier; deski/puste/deski.
+
 ## Edycja w IntelliJ IDEA
 Otwórz folder casino-mod zawierający build.gradle.
 Project SDK: JDK 8; Gradle JVM: JDK 8; dystrybucja Gradle: Wrapper (4.9).
@@ -107,8 +159,8 @@ Pierwsze uruchomienie pobiera biblioteki i zasoby Minecrafta.
 Opcjonalnie uruchom genIntellijRuns, aby wygenerować konfiguracje Run/Debug.
 Nie aktualizuj automatycznie Gradle do nowej głównej wersji.
 
-Budowanie: zadanie build. Wynik: build/libs/dobroszyce-casino-1.12.2-1.0.0.jar.
-Test zasad: zadanie logicTest (wykonywane również przez build).
+Budowanie: zadanie build. Wynik: build/libs/dobroszyce-casino-1.12.2-1.2.0.jar.
+Testy: logicTest, rouletteTest, shopTest (wszystkie wykonywane przez build).
 W terminalu Windows, przy JAVA_HOME wskazującym JDK 8:
 .\gradlew.bat build
 .\gradlew.bat runClient
@@ -127,7 +179,17 @@ assets/dobroszycecasino/: modele, tekstury i receptury.
 - Testy reguł: 10000 symulowanych rozdań z czterema graczami; 193030 sprawdzeń.
 - Testy obejmują asy, naturals, remisy, bust, double, soft 17, obce tury i brak powtórzeń kart.
 - Sprawdzono JSON-y, wartość receptur żetonów i zawartość archiwum.
-- NIE wykonano testu połączenia czterech klientów, renderowania w grze ani testu w RLCraft.
+- Waluta i ceny: 1400205 sprawdzeń rozmieniania oraz poprawnej/błędnej konfiguracji JSON.
+- Ruletka: wszystkie zakłady i wyniki dla stawek 5–5000 co 5 oraz 18500 końcowych pozycji kulki.
+- Test uruchomionego klienta i serwera zintegrowanego: GUI i zakup butów, pobranie
+  205 żetonów, blokada powtórnego żądania, zakotwiczenie/zapis NPC, chodzenie po wodzie,
+  zanurzanie, lądowanie na wodzie, czas/poziom mikstur, obrażenia dwóch celów, koszt
+  własny maczugi, cooldown i utworzenie chmury dymu — poprawne.
+- Testowa konfiguracja cen nie jest dołączona do wydania; przykład ma wyłączone oferty.
+- NIE wykonano testu czterech oddzielnych klientów ani całej paczki RLCraft.
+- Lokalne środowisko testowe wymagało zastąpienia wadliwej klasy Side w cache
+  ForgeGradle oficjalną wersją Forge (błąd dodatkowej wartości BUKKIT).
+  Nie jest to część JAR-a moda.
 
 Przed użyciem na głównym świecie przetestuj na osobnym świecie z 2–4 klientami:
 1. Cztery miejsca i odmowa wejścia piątej osoby.

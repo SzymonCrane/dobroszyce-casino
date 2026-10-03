@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.*;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid=CasinoMod.ID, name="Dobroszyce Casino", version="1.0.0", acceptedMinecraftVersions="[1.12.2]", dependencies="required-after:forge@[14.23.5.2860,)")
+@Mod(modid=CasinoMod.ID, name="Dobroszyce Casino", version="1.2.0", acceptedMinecraftVersions="[1.12.2]", dependencies="required-after:forge@[14.23.5.2860,)")
 @Mod.EventBusSubscriber(modid=CasinoMod.ID)
 public class CasinoMod {
     public static final String ID="dobroszycecasino";
@@ -23,17 +23,22 @@ public class CasinoMod {
     public static final SimpleNetworkWrapper NETWORK=NetworkRegistry.INSTANCE.newSimpleChannel("dobroszycecasino");
     public static final BlockBlackjack TABLE=new BlockBlackjack();
     public static final ItemBlock TABLE_ITEM=(ItemBlock)new ItemBlock(TABLE).setRegistryName(TABLE.getRegistryName());
-    public static final Item[] CHIPS=new Item[4];
-    public static final int[] VALUES={25,50,100,500};
-    static { for(int i=0;i<4;i++) CHIPS[i]=new Item().setRegistryName(ID,"chip_"+VALUES[i]).setUnlocalizedName(ID+".chip_"+VALUES[i]).setCreativeTab(CreativeTabs.MISC); }
-    @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> e) { e.getRegistry().register(TABLE); }
-    @SubscribeEvent public static void items(RegistryEvent.Register<Item> e) { e.getRegistry().register(TABLE_ITEM);e.getRegistry().registerAll(CHIPS); }
+    public static final BlockRoulette ROULETTE=new BlockRoulette();
+    public static final ItemRoulette ROULETTE_ITEM=new ItemRoulette(ROULETTE);
+    public static final Item[] CHIPS=new Item[ChipMath.VALUES.length];
+    public static final int[] VALUES=ChipMath.VALUES;
+    static { for(int i=0;i<CHIPS.length;i++) CHIPS[i]=new Item().setRegistryName(ID,"chip_"+VALUES[i]).setUnlocalizedName(ID+".chip_"+VALUES[i]).setCreativeTab(CreativeTabs.MISC); }
+    @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> e) { e.getRegistry().registerAll(TABLE,ROULETTE); }
+    @SubscribeEvent public static void items(RegistryEvent.Register<Item> e) { e.getRegistry().registerAll(TABLE_ITEM,ROULETTE_ITEM);e.getRegistry().registerAll(CHIPS);e.getRegistry().registerAll(SpecialItems.ALL); }
     @Mod.EventHandler public void preInit(FMLPreInitializationEvent e) {
+        ShopConfig.initialize(new java.io.File(e.getModConfigurationDirectory(),"dobroszycecasino-shop.json"),e.getModLog());
         GameRegistry.registerTileEntity(TileBlackjack.class,new ResourceLocation(ID,"blackjack_table"));
+        GameRegistry.registerTileEntity(TileRoulette.class,new ResourceLocation(ID,"roulette_table"));
         EntityRegistry.registerModEntity(new ResourceLocation(ID,"dealer"),EntityDealer.class,"dealer",1,instance,64,3,false);
+        EntityRegistry.registerModEntity(new ResourceLocation(ID,"shopkeeper"),EntityShopkeeper.class,"shopkeeper",2,instance,64,3,false);
         NETWORK.registerMessage(Snapshot.Handler.class,Snapshot.class,0,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(instance,proxy);
         proxy.preInit();
     }
-    @Mod.EventHandler public void serverStart(FMLServerStartingEvent e) { e.registerServerCommand(new CommandChips()); }
+    @Mod.EventHandler public void serverStart(FMLServerStartingEvent e) { e.registerServerCommand(new CommandChips());e.registerServerCommand(new CommandShop()); }
 }

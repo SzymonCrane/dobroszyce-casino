@@ -3,3 +3,8 @@
 /build/
 /build/classes/java/main/
 /build/classes/java/test/
+# Local development worlds, logs and editor caches
+/run/
+/run-server/
+/.idea/
+*.iml

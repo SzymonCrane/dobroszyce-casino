@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "offers": {
+    "fishs_feet": {
+      "enabled": false,
+      "price": 0
+    },
+    "banana_special": {
+      "enabled": false,
+      "price": 0
+    },
+    "daniels_4_hand_club": {
+      "enabled": false,
+      "price": 0
+    },
+    "sisters_device": {
+      "enabled": false,
+      "price": 0
+    },
+    "malboro_red": {
+      "enabled": false,
+      "price": 0
+    }
+  }
+}
