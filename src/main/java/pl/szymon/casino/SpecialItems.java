@@ -10,9 +10,11 @@ public final class SpecialItems {
     public static final Item BANANA=named(new ItemCasinoConsumable(MobEffects.STRENGTH,1,true),"banana_special");
     public static final Item CLUB=named(new ItemFourHandClub(),"daniels_4_hand_club");
     public static final Item SMOKE=named(new ItemSmokeGun(),"sisters_device");
-    public static final Item MALBORO=named(new ItemCasinoConsumable(MobEffects.SPEED,0,false),"malboro_red");
+    public static final Item MALBORO=named(new ItemCigarette(),"malboro_red");
     public static final Item SHOPKEEPER=named(new ItemShopkeeper(),"shopkeeper_placer");
-    public static final Item KFC=named(new ItemLegendaryFood(false,true,new PotionEffect(MobEffects.ABSORPTION,1200,0),new PotionEffect(MobEffects.REGENERATION,200,0)),"legendary_kfc_bucket");
+    public static final Item KFC=named(new ItemKfcBucket(),"legendary_kfc_bucket");
+    public static final Item PAPER_BOWL=named(new Item(),"paper_bowl");
+    public static final Item KFC_WING=named(new ItemFood(6,0.6F,true),"kfc_wing");
     private static Item energy(String id){return named(new ItemLegendaryFood(true,false,new PotionEffect(MobEffects.HASTE,1200,0),new PotionEffect(MobEffects.SPEED,1200,0),new PotionEffect(MobEffects.NIGHT_VISION,1200,0)),id);}
     public static final Item WHITE_MONSTER=energy("white_monster");
     public static final Item DZIK=energy("dzik_energy");
@@ -22,5 +24,5 @@ public final class SpecialItems {
     public static final Item RED_BULL=named(new ItemLegendaryFood(false,false,new PotionEffect(MobEffects.HASTE,1200,0),new PotionEffect(MobEffects.RESISTANCE,1200,0)),"red_bull_tabacco");
     public static final Item WATROUBLE=named(new ItemWatrouble(),"watrouble");
     public static final Item[] PRODUCTS={FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,KFC,WHITE_MONSTER,DZIK,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
-    public static final Item[] ALL={FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,SHOPKEEPER,KFC,WHITE_MONSTER,DZIK,KARP_GEORGE,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
+    public static final Item[] ALL={FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,SHOPKEEPER,KFC,PAPER_BOWL,KFC_WING,WHITE_MONSTER,DZIK,KARP_GEORGE,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
 }

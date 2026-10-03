@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "BRB"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "item": "minecraft:dye",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "dobroszycecasino:paper_bowl",
+    "count": 1
+  }
+}

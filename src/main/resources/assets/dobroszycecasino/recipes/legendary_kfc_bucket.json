@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    " B "
+  ],
+  "key": {
+    "W": {
+      "item": "dobroszycecasino:kfc_wing"
+    },
+    "B": {
+      "item": "dobroszycecasino:paper_bowl"
+    }
+  },
+  "result": {
+    "item": "dobroszycecasino:legendary_kfc_bucket",
+    "count": 1
+  }
+}

@@ -72,9 +72,11 @@ public class TileBlackjack extends TileEntity implements ITickable {
         markDirty();
     }
     private void startRound() {
+        if(world.isRemote || phase!=BETTING)return;
         boolean[] active=new boolean[4];boolean any=false;for(int i=0;i<4;i++){active[i]=bets[i]>0;any|=active[i];paid[i]=0;}
         if(!any)return;
         round=new BlackjackRound();round.deal(active,world.rand);phase=round.current<0?DEALER:PLAYERS;timer=phase==DEALER?20:600;markDirty();
+        world.playSound(null,pos,CasinoSounds.NO_MORE_BETS,SoundCategory.BLOCKS,1.0F,1.0F);
     }
     private void settle() {
         if(phase!=DEALER)return;

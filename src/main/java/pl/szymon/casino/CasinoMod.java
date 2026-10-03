@@ -43,5 +43,6 @@ public class CasinoMod {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance,proxy);
         proxy.preInit();
     }
+    @Mod.EventHandler public void postInit(FMLPostInitializationEvent e){KfcRecipes.registerSmelting();}
     @Mod.EventHandler public void serverStart(FMLServerStartingEvent e) { e.registerServerCommand(new CommandChips());e.registerServerCommand(new CommandShop()); }
 }
