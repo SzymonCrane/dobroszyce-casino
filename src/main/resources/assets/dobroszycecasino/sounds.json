@@ -1,10 +1,29 @@
 {
   "no_more_bets": {
     "subtitle": "subtitles.dobroszycecasino.no_more_bets",
-    "sounds": [{"name": "dobroszycecasino:no_more_bets", "stream": false}]
+    "sounds": [
+      {
+        "name": "dobroszycecasino:no_more_bets",
+        "stream": false
+      }
+    ]
   },
   "smoke_exhale": {
     "subtitle": "subtitles.dobroszycecasino.smoke_exhale",
-    "sounds": [{"name": "dobroszycecasino:smoke_exhale", "stream": false}]
+    "sounds": [
+      {
+        "name": "dobroszycecasino:smoke_exhale",
+        "stream": false
+      }
+    ]
+  },
+  "smoke_inhale": {
+    "subtitle": "subtitles.dobroszycecasino.smoke_inhale",
+    "sounds": [
+      {
+        "name": "dobroszycecasino:smoke_inhale",
+        "stream": false
+      }
+    ]
   }
 }

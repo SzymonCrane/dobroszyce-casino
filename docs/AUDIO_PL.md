@@ -31,3 +31,7 @@ Oba stoły odtwarzają komunikat w MASTER, tak jak skuteczna komenda diagnostycz
 `tools/refine_villager_voice.py` używa zachowanego pliku v1, nadając głosowi harmoniczną, nosową barwę z intonacją hrrm przez wokoder pasmowy i domieszkę oryginalnych spółgłosek. Jest to stylizacja, nie oryginalny głos villagera. Ocena odsłuchowa użytkownika i próba w grze są nadal potrzebne.
 
 Walidacja poprawki: oba pliki zdekodowano i zmierzono FFmpeg; sprawdzono identyczne wywołanie MASTER/2.0 przy obu stołach oraz JSON. Pełnego builda nie powtórzono: tymczasowy JDK 8 i cache Forge/Gradle z poprzedniej sesji nie są już dostępne.
+
+## Dźwięk zaciągania
+
+Marlboro i Sister's device mają teraz osobny `smoke_inhale`: krótki wdech w tickach 32, 24 i 16 użycia, przed dotychczasowym wydechem po ukończeniu. Dźwięk emituje wyłącznie serwer, do używającego i pobliskich graczy, w kategorii Gracze. Przerwanie użycia zatrzymuje następne porcje; rozpoczęta próbka kończy się w maksymalnie 0,38 s. Cooldown vape nadal blokuje rozpoczęcie użycia. Generator: `tools/generate_inhale_audio.py`. Napisy PL/EN.

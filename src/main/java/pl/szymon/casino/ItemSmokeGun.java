@@ -14,6 +14,9 @@ public class ItemSmokeGun extends Item {
         p.setActiveHand(hand);
         return new ActionResult<>(EnumActionResult.SUCCESS,s);
     }
+    @Override public void onUsingTick(ItemStack stack,EntityLivingBase user,int count){
+        SmokingEffects.inhaleTick(user,count);
+    }
     @Override public ItemStack onItemUseFinish(ItemStack s,World w,EntityLivingBase user){
         if(!w.isRemote && user instanceof EntityPlayer){
             EntityPlayer p=(EntityPlayer)user;
