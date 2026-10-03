@@ -9,7 +9,7 @@ public class RouletteContainer extends Container {
     public final TileRoulette table;
     public NBTTagCompound view=new NBTTagCompound();
     private final EntityPlayer player;
-    private int selected=50,ticks;
+    private int selected=5,ticks;
     private long lastAction=-100;
     public RouletteContainer(EntityPlayer player,TileRoulette table){this.player=player;this.table=table;}
     @Override public boolean canInteractWith(EntityPlayer p){return table.usable(p);}
