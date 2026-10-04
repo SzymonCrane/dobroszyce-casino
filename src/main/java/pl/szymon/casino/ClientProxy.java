@@ -22,9 +22,16 @@ public class ClientProxy extends CommonProxy {
         net.minecraft.item.Item item=e.getItemStack().getItem();
         for(int i=0;i<SpecialItems.PRODUCTS.length;i++)if(item==SpecialItems.PRODUCTS[i])e.getToolTip().add(net.minecraft.util.text.TextFormatting.GRAY+ShopCatalog.HELP[i]);
         if(item==SpecialItems.FISHS_FEET || item==SpecialItems.BROWN_LEGGINGS)e.getToolTip().add("Bez Baubles: trzymaj w drugiej rece");
+        if(item==SpecialItems.EXTINGUISHER)e.getToolTip().add(net.minecraft.util.text.translation.I18n.translateToLocal("tooltip.dobroszycecasino.extinguisher"));
         if(item==SpecialItems.KARP_GEORGE)e.getToolTip().add("Rzadka ryba (1% polowow ryb). Skladnik Fish's Feet.");
     }
-    @Override public void preInit(){net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(TileRoulette.class,new RenderRoulette());RenderingRegistry.registerEntityRenderingHandler(EntityShopkeeper.class,manager->new ShopkeeperRenderer(manager));RenderingRegistry.registerEntityRenderingHandler(EntityDealer.class,manager->new DealerRenderer(manager));}
+    @Override public void preInit(){
+        net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(TileRoulette.class,new RenderRoulette());
+        RenderingRegistry.registerEntityRenderingHandler(EntityShopkeeper.class,ShopkeeperRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDealer.class,DealerRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(net.minecraft.entity.passive.EntityWolf.class,RenderNamedWolf::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAlternatywka.class,RenderAlternatywka::new);
+    }
     @SubscribeEvent public static void models(ModelRegistryEvent e){
         ModelLoader.setCustomModelResourceLocation(CasinoMod.TABLE_ITEM,0,new ModelResourceLocation(CasinoMod.TABLE.getRegistryName(),"inventory"));
         ModelLoader.setCustomModelResourceLocation(CasinoMod.ROULETTE_ITEM,0,new ModelResourceLocation(CasinoMod.ROULETTE.getRegistryName(),"inventory"));

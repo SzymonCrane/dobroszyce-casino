@@ -39,6 +39,7 @@ public class CasinoMod {
         GameRegistry.registerTileEntity(TileRoulette.class,new ResourceLocation(ID,"roulette_table"));
         EntityRegistry.registerModEntity(new ResourceLocation(ID,"dealer"),EntityDealer.class,"dealer",1,instance,64,3,false);
         EntityRegistry.registerModEntity(new ResourceLocation(ID,"shopkeeper"),EntityShopkeeper.class,"shopkeeper",2,instance,64,3,false);
+        EntityRegistry.registerModEntity(new ResourceLocation(ID,"alternatywka"),EntityAlternatywka.class,"alternatywka",3,instance,64,3,true,0x24212D,0x9067AD);
         NETWORK.registerMessage(Snapshot.Handler.class,Snapshot.class,0,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(instance,proxy);
         proxy.preInit();

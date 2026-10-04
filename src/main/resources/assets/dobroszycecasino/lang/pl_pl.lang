@@ -31,3 +31,7 @@ subtitles.dobroszycecasino.smoke_exhale=Wydmuchiwanie dymu
 item.dobroszycecasino.paper_bowl.name=Papierowy kubełek
 item.dobroszycecasino.kfc_wing.name=Skrzydełka KFC
 subtitles.dobroszycecasino.smoke_inhale=Zaciąganie się
+item.dobroszycecasino.extinguisher.name=Gaśnica
+item.dobroszycecasino.alternatywka_spawn_egg.name=Przyzwij Alternatywkę
+entity.dobroszycecasino.alternatywka.name=Alternatywka
+tooltip.dobroszycecasino.extinguisher=Przytrzymaj PPM: biały strumień gasi ogień i schładza lawę (6 kratek).

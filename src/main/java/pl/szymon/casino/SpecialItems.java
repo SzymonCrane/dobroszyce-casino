@@ -23,6 +23,8 @@ public final class SpecialItems {
     public static final Item AMNESIA=named(new ItemLegendaryFood(false,false,new PotionEffect(MobEffects.LEVITATION,200,0),new PotionEffect(MobEffects.SLOWNESS,200,0),new PotionEffect(MobEffects.BLINDNESS,200,0)),"amnesias_weed");
     public static final Item RED_BULL=named(new ItemLegendaryFood(false,false,new PotionEffect(MobEffects.HASTE,1200,0),new PotionEffect(MobEffects.RESISTANCE,1200,0)),"red_bull_tabacco");
     public static final Item WATROUBLE=named(new ItemWatrouble(),"watrouble");
+    public static final Item EXTINGUISHER=named(new ItemExtinguisher(),"extinguisher");
+    public static final Item ALTERNATYWKA_EGG=named(new ItemAlternatywkaEgg(),"alternatywka_spawn_egg");
     public static final Item[] PRODUCTS={FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,KFC,WHITE_MONSTER,DZIK,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
-    public static final Item[] ALL={FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,SHOPKEEPER,KFC,PAPER_BOWL,KFC_WING,WHITE_MONSTER,DZIK,KARP_GEORGE,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
+    public static final Item[] ALL={EXTINGUISHER,ALTERNATYWKA_EGG,FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,SHOPKEEPER,KFC,PAPER_BOWL,KFC_WING,WHITE_MONSTER,DZIK,KARP_GEORGE,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
 }
