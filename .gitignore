@@ -6,6 +6,10 @@
 # Local development worlds, logs and editor caches
 /run/
 /run-server/
+/run/logs/
+/run/saves/
+/run/config/
+/run
 /.idea/
 *.iml
 
