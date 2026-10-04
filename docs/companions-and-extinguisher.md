@@ -10,7 +10,7 @@
 - **Alternatywka** jest przyjaznym, nieatakującym mobem z 10 HP (5 serc). Jest trwała po przyzwaniu i nie znika przez oddalenie się gracza. Nie dodaje się samoczynnie do naturalnego spawnu.
 - Jajko przyzywające jest w zakładce moda. Można też użyć `/summon dobroszycecasino:alternatywka`.
 - Żywy gracz **JakubJanPajdzik** w tym samym świecie, w promieniu 5 bloków, przyciąga Alternatywkę. Mob podbiega normalną ścieżką, zatrzymuje się 1,5 bloku od niego i nie teleportuje się. Widzowie są pomijani.
-- Przy śmierci losuje dokładnie **5%** szansy na jedną sztukę **Fish's Feet**, bez mnożnika Looting. Standardowe `doMobLoot` i zdarzenia lootowe Forge nadal obowiązują.
+- Przy śmierci losuje dokładnie **5%** szansy na jedną sztukę **Feet**, bez mnożnika Looting. Standardowe `doMobLoot` i zdarzenia lootowe Forge nadal obowiązują.
 
 ## Sprawdzenie w grze
 
@@ -43,3 +43,11 @@ Nadanie ocelotowi imienia dokładnie `Yuki` zmienia jego skórkę na srebrzystą
 Atlas 64×32 dla modelu `ModelOcelot` można odtworzyć przez `python tools/generate_yuki_skin.py`. Kod rendererów pozostaje wyłącznie po stronie klienta.
 
 W zmianie Yuki i ikon sprawdzono kompilację wszystkich źródeł Java 8, obecność i rozmiary tekstur oraz kanał przezroczystości ikon. Zgodnie z prośbą pominięto dalsze sprawdzanie wyglądu w grze. Pełnego builda Gradle nie ponawiano po wcześniejszej blokadzie pobierania zależności.
+
+## Feet i kolejne rasy wilków
+
+Alternatywka ma teraz 5% szansy na jedną sztukę zwykłego przedmiotu `Feet` (`dobroszycecasino:feet`). Nie dropi już Fish's Feet. Feet znajduje się też w zakładce creative moda, nie jest akcesorium Baubles i nie przyznaje efektów. Fish's Feet zachowuje dotychczasowe działanie, recepturę i ofertę sklepu.
+
+Nowe imiona wilków: `Kaukaz` — owczarek kaukaski z szaro-sobolową sierścią, jasną kryzą i ciemną maską; `Maltipoo` — kremowe futro z pikselowymi kępkami loków i opadającymi uszami. Pozostają też Azor i Morty. Inne imię przywraca zwykły wygląd. Skórki odtwarza `tools/generate_extra_dog_skins.py`; model i zachowanie wilka korzystają z istniejącej implementacji.
+
+Ikona Feet: wygenerowany pixel art pary zwykłych ludzkich stóp, przeskalowany do 32×32 RGBA metodą nearest-neighbor.

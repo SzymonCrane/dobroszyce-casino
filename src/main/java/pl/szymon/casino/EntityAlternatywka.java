@@ -28,7 +28,7 @@ public class EntityAlternatywka extends EntityCreature {
     @Override protected boolean canDespawn() { return false; }
     @Override protected void dropFewItems(boolean hitByPlayer, int looting) {
         // Exactly 5%, independent of Looting and who dealt the last hit.
-        if (rand.nextInt(100) < 5) dropItem(SpecialItems.FISHS_FEET, 1);
+        if (rand.nextInt(100) < 5) dropItem(SpecialItems.FEET, 1);
     }
     private static final class FollowJakub extends EntityAIBase {
         private final EntityAlternatywka mob;
