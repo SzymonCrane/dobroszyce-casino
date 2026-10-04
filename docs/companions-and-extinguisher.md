@@ -34,4 +34,12 @@ Noszony Watrouble blokuje nałożenie obu efektów i usuwa już aktywne efekty p
 
 Do sprawdzenia w grze: trucizna/wither przed założeniem, próby nałożenia obu efektów podczas noszenia (różne poziomy), ponowne nałożenie po zdjęciu, zachowanie innych efektów oraz założenie podczas cooldownu absorpcji. Powtórzyć z Baubles i bez niego.
 
-Propozycje nowych ikon Amnesii, Watrouble i karpia przedstawiono osobno; dotychczasowe ikony w zasobach gry nie są podmieniane w tym PR.
+Zaakceptowane propozycje ikon Amnesii, Watrouble i karpia zostały teraz podmienione w zasobach gry na tekstury 32×32 RGBA. Zachowano okulary karpia oraz istniejące ustawienia wyświetlania przedmiotów w ręce.
+
+## Yuki — srebrzysty kot brytyjski
+
+Nadanie ocelotowi imienia dokładnie `Yuki` zmienia jego skórkę na srebrzystą, z jasnym pyszczkiem i zielonymi oczami. Działa dla dzikich i oswojonych ocelotów oraz młodych. Zmiana imienia na inne przywraca poprzedni wariant umaszczenia; typ kota zapisany w świecie nie jest zmieniany. Animacje, siadanie i oswajanie pozostają standardowe.
+
+Atlas 64×32 dla modelu `ModelOcelot` można odtworzyć przez `python tools/generate_yuki_skin.py`. Kod rendererów pozostaje wyłącznie po stronie klienta.
+
+W zmianie Yuki i ikon sprawdzono kompilację wszystkich źródeł Java 8, obecność i rozmiary tekstur oraz kanał przezroczystości ikon. Zgodnie z prośbą pominięto dalsze sprawdzanie wyglądu w grze. Pełnego builda Gradle nie ponawiano po wcześniejszej blokadzie pobierania zależności.

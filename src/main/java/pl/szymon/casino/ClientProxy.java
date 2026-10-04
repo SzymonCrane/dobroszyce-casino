@@ -31,6 +31,7 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityDealer.class,DealerRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(net.minecraft.entity.passive.EntityWolf.class,RenderNamedWolf::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityAlternatywka.class,RenderAlternatywka::new);
+        RenderingRegistry.registerEntityRenderingHandler(net.minecraft.entity.passive.EntityOcelot.class,RenderNamedOcelot::new);
     }
     @SubscribeEvent public static void models(ModelRegistryEvent e){
         ModelLoader.setCustomModelResourceLocation(CasinoMod.TABLE_ITEM,0,new ModelResourceLocation(CasinoMod.TABLE.getRegistryName(),"inventory"));
