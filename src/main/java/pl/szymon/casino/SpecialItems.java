@@ -6,6 +6,7 @@ import net.minecraft.potion.PotionEffect;
 public final class SpecialItems {
     private SpecialItems(){}
     private static Item named(Item item,String id){return item.setRegistryName(CasinoMod.ID,id).setUnlocalizedName(CasinoMod.ID+"."+id).setCreativeTab(CasinoMod.TAB);}
+    public static final Item FEET=named(new Item(),"feet");
     public static final Item FISHS_FEET=named(new ItemFishFeet(),"fishs_feet");
     public static final Item BANANA=named(new ItemCasinoConsumable(MobEffects.STRENGTH,1,true),"banana_special");
     public static final Item CLUB=named(new ItemFourHandClub(),"daniels_4_hand_club");
@@ -26,5 +27,5 @@ public final class SpecialItems {
     public static final Item EXTINGUISHER=named(new ItemExtinguisher(),"extinguisher");
     public static final Item ALTERNATYWKA_EGG=named(new ItemAlternatywkaEgg(),"alternatywka_spawn_egg");
     public static final Item[] PRODUCTS={FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,KFC,WHITE_MONSTER,DZIK,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
-    public static final Item[] ALL={EXTINGUISHER,ALTERNATYWKA_EGG,FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,SHOPKEEPER,KFC,PAPER_BOWL,KFC_WING,WHITE_MONSTER,DZIK,KARP_GEORGE,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
+    public static final Item[] ALL={FEET,EXTINGUISHER,ALTERNATYWKA_EGG,FISHS_FEET,BANANA,CLUB,SMOKE,MALBORO,SHOPKEEPER,KFC,PAPER_BOWL,KFC_WING,WHITE_MONSTER,DZIK,KARP_GEORGE,BROWN_LEGGINGS,AMNESIA,RED_BULL,WATROUBLE};
 }
