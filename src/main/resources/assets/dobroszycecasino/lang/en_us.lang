@@ -31,3 +31,7 @@ subtitles.dobroszycecasino.smoke_exhale=Smoke exhaled
 item.dobroszycecasino.paper_bowl.name=Paper Bowl
 item.dobroszycecasino.kfc_wing.name=Chicken Wings
 subtitles.dobroszycecasino.smoke_inhale=Inhaling smoke
+item.dobroszycecasino.extinguisher.name=Fire Extinguisher
+item.dobroszycecasino.alternatywka_spawn_egg.name=Spawn Alternatywka
+entity.dobroszycecasino.alternatywka.name=Alternatywka
+tooltip.dobroszycecasino.extinguisher=Hold right click: white spray extinguishes fire and cools lava (6 blocks).
